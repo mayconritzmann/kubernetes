@@ -103,8 +103,7 @@ systemctl enable haproxy
 ### Desative o Firewall
 
 ```bash
-ufw disable
-systemctl disable ufw
+systemctl disable ufw --now
 ```
 
 ### Desative o swap
@@ -165,8 +164,7 @@ apt update && apt install -y containerd
 sudo mkdir -p /etc/containerd
 sudo containerd config default > /etc/containerd/config.toml
 echo "runtime-endpoint: unix:///run/containerd/containerd.sock" > /etc/crictl.yaml
-systemctl enable containerd
-systemctl start containerd
+systemctl enable containerd --now
 ```
 
 ## Em qualquer node master (Ex: k8s-master001)
